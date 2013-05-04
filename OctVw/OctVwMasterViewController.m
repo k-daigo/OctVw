@@ -9,6 +9,7 @@
 #import "OctVwMasterViewController.h"
 
 #import "OctVwDetailViewController.h"
+#import "PListUtil.h"
 
 @interface OctVwMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -29,6 +30,10 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    [self showMsg: @"Need SignIn to GitHub"];
+
+//    [self authGitHub];
 }
 
 - (void)didReceiveMemoryWarning
@@ -204,7 +209,7 @@
 }
 
 /*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
+// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
  
  - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
@@ -217,6 +222,34 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+}
+
+-(void) authGitHub
+{
+    NSString* clientId = [PListUtil getString:@"GitHub_clientID"];
+    NSLog(@"authGitHub clientId=%@", clientId);
+
+    NSString* scope = @"public_repo,repo,repo:status,gist";
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://github.com/login/oauth/authorize?client_id=%@&scope=%@&response_type=token&display=ios", clientId, scope]];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+-(void)alertView:(UIAlertView*)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"clickedButtonAtIndex buttonIndex=%d", buttonIndex);
+    
+    [self authGitHub];
+}
+
+-(void) showMsg:(NSString*) msg
+{
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@""
+                          message: msg
+                          delegate:self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+	[alert show];
 }
 
 @end
