@@ -148,4 +148,15 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+// カスタムスキーマ起動時のハンドラ
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSString* msg = [NSString stringWithFormat:@"[URL]%@\n[schame]%@\n[Query]%@",
+                     [url absoluteString], [url scheme], [url query]];
+    
+    
+    NSLog(@"handleOpenURL %@", msg);
+    
+    return YES;
+}
+
 @end

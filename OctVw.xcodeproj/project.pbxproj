@@ -36,7 +36,9 @@
 		4C30CC881732ACA000F019E1 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C30CC7D1732ACA000F019E1 /* AFURLConnectionOperation.m */; };
 		4C30CC891732ACA000F019E1 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C30CC7F1732ACA000F019E1 /* AFXMLRequestOperation.m */; };
 		4C30CC8A1732ACA000F019E1 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C30CC811732ACA000F019E1 /* UIImageView+AFNetworking.m */; };
-		4CF6FBE01735524600451C5A /* OctVw.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CF6FBDF1735524600451C5A /* OctVw.plist */; };
+		4C549A17173583AA00D62BA0 /* OctVw.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C549A16173583AA00D62BA0 /* OctVw.plist */; };
+		4C549A1A1736923700D62BA0 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C549A191736923700D62BA0 /* Util.m */; };
+		4C549A1D173697DF00D62BA0 /* GitHubUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C549A1C173697DF00D62BA0 /* GitHubUtil.m */; };
 		4CF6FBE4173552BE00451C5A /* PListUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF6FBE3173552BE00451C5A /* PListUtil.m */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +98,11 @@
 		4C30CC7F1732ACA000F019E1 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		4C30CC801732ACA000F019E1 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		4C30CC811732ACA000F019E1 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		4CF6FBDF1735524600451C5A /* OctVw.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OctVw.plist; sourceTree = "<group>"; };
+		4C549A16173583AA00D62BA0 /* OctVw.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OctVw.plist; sourceTree = "<group>"; };
+		4C549A181736923700D62BA0 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		4C549A191736923700D62BA0 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		4C549A1B173697DF00D62BA0 /* GitHubUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubUtil.h; sourceTree = "<group>"; };
+		4C549A1C173697DF00D62BA0 /* GitHubUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubUtil.m; sourceTree = "<group>"; };
 		4CF6FBE2173552BE00451C5A /* PListUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PListUtil.h; path = Common/PListUtil.h; sourceTree = "<group>"; };
 		4CF6FBE3173552BE00451C5A /* PListUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PListUtil.m; path = Common/PListUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,7 +185,6 @@
 		4C174DD217329D390069AF35 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4CF6FBDF1735524600451C5A /* OctVw.plist */,
 				4C174DD317329D390069AF35 /* OctVw-Info.plist */,
 				4C174DD417329D390069AF35 /* InfoPlist.strings */,
 				4C174DD717329D390069AF35 /* main.m */,
@@ -187,6 +192,7 @@
 				4C174DDD17329D390069AF35 /* Default.png */,
 				4C174DDF17329D390069AF35 /* Default@2x.png */,
 				4C174DE117329D390069AF35 /* Default-568h@2x.png */,
+				4C549A16173583AA00D62BA0 /* OctVw.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -241,6 +247,10 @@
 			children = (
 				4CF6FBE2173552BE00451C5A /* PListUtil.h */,
 				4CF6FBE3173552BE00451C5A /* PListUtil.m */,
+				4C549A181736923700D62BA0 /* Util.h */,
+				4C549A191736923700D62BA0 /* Util.m */,
+				4C549A1B173697DF00D62BA0 /* GitHubUtil.h */,
+				4C549A1C173697DF00D62BA0 /* GitHubUtil.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -322,7 +332,7 @@
 				4C174DE017329D390069AF35 /* Default@2x.png in Resources */,
 				4C174DE217329D390069AF35 /* Default-568h@2x.png in Resources */,
 				4C174DE517329D390069AF35 /* MainStoryboard.storyboard in Resources */,
-				4CF6FBE01735524600451C5A /* OctVw.plist in Resources */,
+				4C549A17173583AA00D62BA0 /* OctVw.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +382,8 @@
 				4C30CC891732ACA000F019E1 /* AFXMLRequestOperation.m in Sources */,
 				4C30CC8A1732ACA000F019E1 /* UIImageView+AFNetworking.m in Sources */,
 				4CF6FBE4173552BE00451C5A /* PListUtil.m in Sources */,
+				4C549A1A1736923700D62BA0 /* Util.m in Sources */,
+				4C549A1D173697DF00D62BA0 /* GitHubUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

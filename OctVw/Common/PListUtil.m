@@ -10,7 +10,7 @@
 
 @implementation PListUtil
 
-+(NSString*) getString:(NSString*) key;
++(NSString*) getString:(NSString*) key
 {
     NSString* path = [[NSBundle mainBundle] pathForResource:@"OctVw" ofType:@"plist"];
     NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
